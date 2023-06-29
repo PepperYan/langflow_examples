@@ -1,0 +1,747 @@
+{
+  "description": "A simple chat with a custom prompt template, conversational memory buffer and Postgres storage",
+  "name": "Basic Chat with Prompt and History using PG",
+  "data": {
+    "nodes": [
+      {
+        "width": 384,
+        "height": 631,
+        "id": "ChatOpenAI-FtLI5",
+        "type": "genericNode",
+        "position": {
+          "x": 588.8219099777771,
+          "y": 802.3650914634321
+        },
+        "data": {
+          "type": "ChatOpenAI",
+          "node": {
+            "template": {
+              "callbacks": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "callbacks",
+                "advanced": false,
+                "type": "langchain.callbacks.base.BaseCallbackHandler",
+                "list": true
+              },
+              "cache": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "cache",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "client": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "client",
+                "advanced": false,
+                "type": "Any",
+                "list": false
+              },
+              "max_retries": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": 6,
+                "password": false,
+                "name": "max_retries",
+                "advanced": false,
+                "type": "int",
+                "list": false
+              },
+              "max_tokens": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": true,
+                "name": "max_tokens",
+                "advanced": false,
+                "type": "int",
+                "list": false,
+                "value": ""
+              },
+              "model_kwargs": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "model_kwargs",
+                "advanced": true,
+                "type": "code",
+                "list": false
+              },
+              "model_name": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "gpt-3.5-turbo",
+                "password": false,
+                "options": [
+                  "gpt-3.5-turbo-0613",
+                  "gpt-3.5-turbo",
+                  "gpt-3.5-turbo-16k-0613",
+                  "gpt-3.5-turbo-16k",
+                  "gpt-4-0613",
+                  "gpt-4-32k-0613",
+                  "gpt-4",
+                  "gpt-4-32k"
+                ],
+                "name": "model_name",
+                "advanced": false,
+                "type": "str",
+                "list": true
+              },
+              "n": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": 1,
+                "password": false,
+                "name": "n",
+                "advanced": false,
+                "type": "int",
+                "list": false
+              },
+              "openai_api_base": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "openai_api_base",
+                "display_name": "OpenAI API Base",
+                "advanced": false,
+                "type": "str",
+                "list": false,
+                "value": "https://chat.54dx.com/v1"
+              },
+              "openai_api_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": true,
+                "name": "openai_api_key",
+                "display_name": "OpenAI API Key",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "openai_organization": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "openai_organization",
+                "display_name": "OpenAI Organization",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "openai_proxy": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "openai_proxy",
+                "display_name": "OpenAI Proxy",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "request_timeout": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "request_timeout",
+                "advanced": false,
+                "type": "float",
+                "list": false,
+                "value": 60
+              },
+              "streaming": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": false,
+                "password": false,
+                "name": "streaming",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "tags": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "tags",
+                "advanced": false,
+                "type": "str",
+                "list": true
+              },
+              "temperature": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": 0.7,
+                "password": false,
+                "name": "temperature",
+                "advanced": false,
+                "type": "float",
+                "list": false
+              },
+              "verbose": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": false,
+                "password": false,
+                "name": "verbose",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "_type": "ChatOpenAI"
+            },
+            "description": "Wrapper around OpenAI Chat large language models.",
+            "base_classes": [
+              "ChatOpenAI",
+              "BaseChatModel",
+              "Serializable",
+              "BaseLanguageModel"
+            ],
+            "display_name": "ChatOpenAI"
+          },
+          "id": "ChatOpenAI-FtLI5",
+          "value": null
+        },
+        "selected": false,
+        "dragging": false,
+        "positionAbsolute": {
+          "x": 588.8219099777771,
+          "y": 802.3650914634321
+        }
+      },
+      {
+        "width": 384,
+        "height": 307,
+        "id": "LLMChain-RRkRg",
+        "type": "genericNode",
+        "position": {
+          "x": 1250.1806448178158,
+          "y": 588.4657451068704
+        },
+        "data": {
+          "type": "LLMChain",
+          "node": {
+            "template": {
+              "callbacks": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "callbacks",
+                "advanced": false,
+                "type": "langchain.callbacks.base.BaseCallbackHandler",
+                "list": true
+              },
+              "llm": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "llm",
+                "advanced": false,
+                "type": "BaseLanguageModel",
+                "list": false
+              },
+              "memory": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "memory",
+                "advanced": false,
+                "type": "BaseMemory",
+                "list": false
+              },
+              "output_parser": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "output_parser",
+                "advanced": false,
+                "type": "BaseLLMOutputParser",
+                "list": false
+              },
+              "prompt": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "prompt",
+                "advanced": false,
+                "type": "BasePromptTemplate",
+                "list": false
+              },
+              "llm_kwargs": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "llm_kwargs",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "output_key": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "text",
+                "password": false,
+                "name": "output_key",
+                "advanced": true,
+                "type": "str",
+                "list": false
+              },
+              "return_final_only": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": true,
+                "password": false,
+                "name": "return_final_only",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "tags": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "tags",
+                "advanced": false,
+                "type": "str",
+                "list": true
+              },
+              "verbose": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": false,
+                "password": false,
+                "name": "verbose",
+                "advanced": true,
+                "type": "bool",
+                "list": false
+              },
+              "_type": "LLMChain"
+            },
+            "description": "Chain to run queries against LLMs.",
+            "base_classes": [
+              "Chain",
+              "Serializable",
+              "LLMChain",
+              "function"
+            ],
+            "display_name": "LLMChain"
+          },
+          "id": "LLMChain-RRkRg",
+          "value": null
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 1250.1806448178158,
+          "y": 588.4657451068704
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 265,
+        "id": "PromptTemplate-sthJH",
+        "type": "genericNode",
+        "position": {
+          "x": 592.2726172903459,
+          "y": 483.0710647990685
+        },
+        "data": {
+          "type": "PromptTemplate",
+          "node": {
+            "template": {
+              "output_parser": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "output_parser",
+                "advanced": false,
+                "type": "BaseOutputParser",
+                "list": false
+              },
+              "input_variables": {
+                "required": true,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "input_variables",
+                "advanced": false,
+                "type": "str",
+                "list": true
+              },
+              "partial_variables": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "password": false,
+                "name": "partial_variables",
+                "advanced": false,
+                "type": "code",
+                "list": false
+              },
+              "template": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": true,
+                "password": false,
+                "name": "template",
+                "advanced": false,
+                "type": "prompt",
+                "list": false,
+                "value": "The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.\n\nCurrent conversation:\n\n{history}\nHuman: {text}\nAI:"
+              },
+              "template_format": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": "f-string",
+                "password": false,
+                "name": "template_format",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "validate_template": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": true,
+                "password": false,
+                "name": "validate_template",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "_type": "PromptTemplate"
+            },
+            "description": "Schema to represent a prompt for an LLM.",
+            "base_classes": [
+              "StringPromptTemplate",
+              "PromptTemplate",
+              "Serializable",
+              "BasePromptTemplate"
+            ],
+            "display_name": "PromptTemplate"
+          },
+          "id": "PromptTemplate-sthJH",
+          "value": null
+        },
+        "selected": false,
+        "dragging": false,
+        "positionAbsolute": {
+          "x": 592.2726172903459,
+          "y": 483.0710647990685
+        }
+      },
+      {
+        "width": 384,
+        "height": 561,
+        "id": "ConversationBufferMemory-iOdPe",
+        "type": "genericNode",
+        "position": {
+          "x": 589.9913321913848,
+          "y": -153.92028278839877
+        },
+        "data": {
+          "type": "ConversationBufferMemory",
+          "node": {
+            "template": {
+              "chat_memory": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "chat_memory",
+                "advanced": false,
+                "type": "BaseChatMessageHistory",
+                "list": false
+              },
+              "ai_prefix": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": "AI",
+                "password": false,
+                "name": "ai_prefix",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "human_prefix": {
+                "required": false,
+                "placeholder": "",
+                "show": false,
+                "multiline": false,
+                "value": "Human",
+                "password": false,
+                "name": "human_prefix",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "input_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": false,
+                "name": "input_key",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "memory_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "history",
+                "password": false,
+                "name": "memory_key",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "output_key": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "",
+                "password": false,
+                "name": "output_key",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "return_messages": {
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "return_messages",
+                "advanced": false,
+                "type": "bool",
+                "list": false
+              },
+              "_type": "ConversationBufferMemory"
+            },
+            "description": "Buffer for storing conversation memory.",
+            "base_classes": [
+              "ConversationBufferMemory",
+              "BaseChatMemory",
+              "BaseMemory",
+              "Serializable"
+            ],
+            "display_name": "ConversationBufferMemory"
+          },
+          "id": "ConversationBufferMemory-iOdPe",
+          "value": null
+        },
+        "selected": false,
+        "positionAbsolute": {
+          "x": 589.9913321913848,
+          "y": -153.92028278839877
+        },
+        "dragging": false
+      },
+      {
+        "width": 384,
+        "height": 445,
+        "id": "PostgresChatMessageHistory-1eArC",
+        "type": "genericNode",
+        "position": {
+          "x": 106.2812004099568,
+          "y": -102.42110299487334
+        },
+        "data": {
+          "type": "PostgresChatMessageHistory",
+          "node": {
+            "template": {
+              "connection_string": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "connection_string",
+                "advanced": false,
+                "type": "str",
+                "list": false,
+                "value": "postgres://postgres:postgrespw@localhost:32768"
+              },
+              "session_id": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "password": false,
+                "name": "session_id",
+                "advanced": false,
+                "type": "str",
+                "list": false,
+                "value": "111"
+              },
+              "table_name": {
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "multiline": false,
+                "value": "message_store",
+                "password": false,
+                "name": "table_name",
+                "advanced": false,
+                "type": "str",
+                "list": false
+              },
+              "_type": "PostgresChatMessageHistory"
+            },
+            "description": "Memory store with Postgres",
+            "base_classes": [
+              "PostgresChatMessageHistory",
+              "BaseChatMessageHistory"
+            ],
+            "display_name": "PostgresChatMessageHistory"
+          },
+          "id": "PostgresChatMessageHistory-1eArC",
+          "value": null
+        },
+        "positionAbsolute": {
+          "x": 106.2812004099568,
+          "y": -102.42110299487334
+        },
+        "dragging": false,
+        "selected": false
+      }
+    ],
+    "edges": [
+      {
+        "source": "ChatOpenAI-FtLI5",
+        "sourceHandle": "ChatOpenAI|ChatOpenAI-FtLI5|ChatOpenAI|BaseChatModel|Serializable|BaseLanguageModel",
+        "target": "LLMChain-RRkRg",
+        "targetHandle": "BaseLanguageModel|llm|LLMChain-RRkRg",
+        "className": "",
+        "id": "reactflow__edge-ChatOpenAI-FtLI5ChatOpenAI|ChatOpenAI-FtLI5|ChatOpenAI|BaseChatModel|Serializable|BaseLanguageModel-LLMChain-RRkRgBaseLanguageModel|llm|LLMChain-RRkRg",
+        "selected": false,
+        "style": {
+          "stroke": "#555555"
+        },
+        "animated": false
+      },
+      {
+        "source": "PromptTemplate-sthJH",
+        "sourceHandle": "PromptTemplate|PromptTemplate-sthJH|StringPromptTemplate|PromptTemplate|Serializable|BasePromptTemplate",
+        "target": "LLMChain-RRkRg",
+        "targetHandle": "BasePromptTemplate|prompt|LLMChain-RRkRg",
+        "className": "",
+        "id": "reactflow__edge-PromptTemplate-sthJHPromptTemplate|PromptTemplate-sthJH|StringPromptTemplate|PromptTemplate|Serializable|BasePromptTemplate-LLMChain-RRkRgBasePromptTemplate|prompt|LLMChain-RRkRg",
+        "style": {
+          "stroke": "#555555"
+        },
+        "animated": false,
+        "selected": false
+      },
+      {
+        "source": "ConversationBufferMemory-iOdPe",
+        "sourceHandle": "ConversationBufferMemory|ConversationBufferMemory-iOdPe|ConversationBufferMemory|BaseChatMemory|BaseMemory|Serializable",
+        "target": "LLMChain-RRkRg",
+        "targetHandle": "BaseMemory|memory|LLMChain-RRkRg",
+        "className": "",
+        "id": "reactflow__edge-ConversationBufferMemory-iOdPeConversationBufferMemory|ConversationBufferMemory-iOdPe|ConversationBufferMemory|BaseChatMemory|BaseMemory|Serializable-LLMChain-RRkRgBaseMemory|memory|LLMChain-RRkRg",
+        "style": {
+          "stroke": "#555555"
+        },
+        "animated": false,
+        "selected": false
+      },
+      {
+        "source": "PostgresChatMessageHistory-1eArC",
+        "sourceHandle": "PostgresChatMessageHistory|PostgresChatMessageHistory-1eArC|PostgresChatMessageHistory|BaseChatMessageHistory",
+        "target": "ConversationBufferMemory-iOdPe",
+        "targetHandle": "BaseChatMessageHistory|chat_memory|ConversationBufferMemory-iOdPe",
+        "style": {
+          "stroke": "inherit"
+        },
+        "className": "stroke-gray-900 dark:stroke-gray-200",
+        "animated": false,
+        "id": "reactflow__edge-PostgresChatMessageHistory-1eArCPostgresChatMessageHistory|PostgresChatMessageHistory-1eArC|PostgresChatMessageHistory|BaseChatMessageHistory-ConversationBufferMemory-iOdPeBaseChatMessageHistory|chat_memory|ConversationBufferMemory-iOdPe",
+        "selected": false
+      }
+    ],
+    "viewport": {
+      "x": -25.670432489526092,
+      "y": 103.7840299949937,
+      "zoom": 0.45004726718707744
+    }
+  },
+  "id": "741a0c34-467d-4d70-bafd-d48a19a20016"
+}
