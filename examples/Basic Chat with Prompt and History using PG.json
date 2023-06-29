@@ -123,13 +123,13 @@
                 "placeholder": "",
                 "show": true,
                 "multiline": false,
-                "password": false,
+                "password": true,
                 "name": "openai_api_base",
                 "display_name": "OpenAI API Base",
                 "advanced": false,
                 "type": "str",
                 "list": false,
-                "value": "https://chat.54dx.com/v1"
+                "value": ""
               },
               "openai_api_key": {
                 "required": false,
